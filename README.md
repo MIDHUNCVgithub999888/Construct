@@ -1,3 +1,1 @@
 # WebProject
-# djangoproject
-# djangoproject
