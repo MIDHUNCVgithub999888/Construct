@@ -80,7 +80,7 @@ class Sample(models.Model):
   EducationalQualification=models.CharField(max_length=100,default='')
   LanguageKnown=models.CharField(max_length=100,default='')
   Address=models.CharField(max_length=100)
-  Email=models.EmailField(unique=True)
+  Email=models.EmailField()
   Photo=models.ImageField(upload_to="media/",default=0)
   Village=models.CharField(max_length=100)
   District=models.CharField(max_length=100,choices=district)

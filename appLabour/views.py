@@ -32,14 +32,14 @@ def UserRegistration(request):
 			confirmpassword=form.cleaned_data['ConfirmPassword']
 			
 
-			ur=Sample.objects.filter(Email=email)
+			ur=Sample.objects.filter(Email=email).exists()
 
-			# if ur:
-			# 	msg="User with same EmailAddress is already exists"
-			# 	args={'form':form,'error':msg}
-			# 	return render(request,'Registration.html',args)
+			if ur:
+				msg="User with same EmailAddress is already exists"
+				args={'form':form,'error':msg}
+				return render(request,'Registration.html',args)
 
-			if password!=confirmpassword:
+			elif password!=confirmpassword:
 				msg="enter correct password!password mismatch"
 				args={'form':form,'error':msg}
 				return render(request,'Registration.html',args)
