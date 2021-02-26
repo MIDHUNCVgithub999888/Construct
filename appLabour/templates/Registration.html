@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+	
+{% block content %}
+	<div>
+		<form action="{% url 'appLabour:UserRegistration' %}" method='post' enctype="multipart/form-data">
+			{% csrf_token %}
+			<center>
+			<table>
+				<tr>
+					<td>
+						<h3>RegistrationForm</h3>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						{{ form.as_table }}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input class="btn btn-success" type="submit" name="Register" value="Register">
+					</td>
+				</tr>
+				
+			</table>
+		</center>
+			
+		</form>
+			
+	</div>
+{% endblock %}
+</body>
+
+
+</html>

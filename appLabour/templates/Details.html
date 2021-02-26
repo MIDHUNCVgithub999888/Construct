@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+	<div>
+		<form action="{% url 'appLabour:ProductDetails' image.id %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<center>
+			<table style=" margin-top: 30px;">
+				
+                 <tr>
+					
+					<td>
+						<img  src="{{image.Image.url}}">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Name:</td>
+					<td>
+						<input type="text" name="Name" value="{{image.Name}}">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Color:</td>
+					<td>
+						<input type="text" name="Color" value="{{image.Color}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td>
+						<input type="text" name="Price" value="{{image.Price}}">
+						
+					</td>
+				</tr>
+				
+
+				<tr>
+					<td>Model</td>
+					<td>
+						<input type="text" name="Model" value="{{image.Model}}">
+					</td>
+				</tr>
+			</table>
+			</center>
+
+
+		</form>
+
+	</div>
+
+
+	{% endblock %}
+</body>
+</html>

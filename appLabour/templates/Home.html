@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+	{% block content %}
+	<div>
+		<form action="{% url 'appLabour:UserHome' user.id %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			{% if user %}
+			<div style="background-color: black;">
+
+				<table style="margin-left: 1100px;">
+				<tr>
+					<td>
+						<img src="{{ user.Photo.url }}" style="width: 100px; height: 90px; border-radius: 100px;">
+						
+
+						<td>
+							<h4 style="color: white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user}}</h4>
+							
+						</td>
+
+						<td>
+							<li>
+								<a href="{% url 'appLabour:ViewProfile' user.id %}">Profile</a>
+							</li>
+						</td>
+
+						
+					</td>
+					
+
+					<td>
+						<a href="{% url 'appLabour:ChangePassword' user.id %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChangePassword</a>
+					</td>
+				</tr>
+				<td>
+					<tr>
+						
+					</tr>
+				</td>
+				
+				
+			</table>
+		   
+
+
+	</div>
+			<center>
+			<!-- <table>
+				<tr>
+					<td>
+						<img src="{{ user.Photo.url }}" style="width: 100px; height: 100px; border-radius: 100px;">
+						<td>
+							<h2>{{user}}</h2>
+						</td>
+						
+					</td>
+					
+
+					<td>
+						<a href="{% url 'appLabour:ChangePassword' user.id %}">ChangePassword</a>
+					</td>
+				</tr>
+				<td>
+					<tr>
+						
+					</tr>
+				</td>
+				
+				
+			</table> -->
+			</center>
+			{% endif %}
+		</form>
+	</div>
+	{% endblock %}
+
+</body>
+</html>

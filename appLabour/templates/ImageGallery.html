@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{%  load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+	<div>
+		
+		<form action="{% url 'appLabour:ImageGallery' %}" enctype="multipart/form-data" method="post">
+			{% csrf_token %}
+            {% for im in image %}	
+            	<table border="4">
+            		
+            		
+                  <tr>
+                  	<td>
+					   
+					   <a href="{% url 'appLabour:ProductDetails' im.id %}">
+					   	
+					   	<img style="width: 300px;" src="{{im.Image.url}}">
+					   </a>
+					   </td>
+					</tr>
+
+			</table>
+			{% endfor %}
+			
+		</form>
+	</div>
+	{% endblock %}
+
+</body>
+</html>

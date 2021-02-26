@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		td{
+
+
+			column-span: 2px;
+		}
+
+			
+	</style>
+</head>
+<body>
+	{% block content %}
+	<div>
+		<form action="ViewProfile/{{user.id}}" method="post" enctype="mutlipart/form-data">
+			{% csrf_token %}
+			<center>
+			<table border="15" style="margin-top: 20px;">
+				
+				<tr style="text-align: center;">
+					<td>
+						<h3>Profile</h3>
+					</td>
+					<td>
+						<img src="{{user.Photo.url}}" style="width: 170px; height: 90px" >
+					</td>
+				</tr>
+				<tr>
+					<td>Firstname:</td>
+					
+					<td>
+						<input type="text" name="Firstname" value="{{user.Firstname}}">
+					</td>
+					
+
+				</tr>
+
+				<tr>
+					<td>Lastname:</td>
+					<td>
+						<input type="text" name="Lastname" value="{{user.Lastname}}">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Gender:</td>
+					<td>
+						<input type="text" name="Gender" value="{{user.Gender}}">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Age:</td>
+					<td>
+					<input type="text" name="Age" value="{{user.Age}}">
+					</td>
+				</tr>
+
+				<tr>
+					<td>EducationalQualification</td>
+					<td>
+						<input type="text" name="EducationalQualification" value="{{user.EducationalQualification}}">
+					</td>
+				</tr>
+
+				<tr>
+					<td>LanguageKnown:</td>
+					<td>
+						<input type="text" name="LanguageKnown" value="{{user.LanguageKnown}}">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Address:</td>
+					<td>
+						<input type="text" name="Address" value="{{user.Address}}">
+					</td>
+				</tr>
+
+				<tr>
+					<td>Email:</td>
+					<td>
+						<input type="text" name="Email" value="{{user.Email}}">
+					</td>
+				</tr>
+
+
+				<!-- <tr>
+					<td>Photo:</td>
+					<td>
+						<img src="{{user.Photo.url}}" style="width: 60px; height: 60px" >
+					</td>
+				</tr> -->
+
+				<tr>
+					<td>Village:</td>
+
+                 
+                 <td>
+                 	<input type="text" name="Village" value="{{user.Village}}">
+                 </td>	
+                 </tr>
+
+                 <tr>
+                 	<td>District:</td>
+                 	<td>
+                 		<input type="text" name="District" value="{{user.District}}">
+                 	</td>
+                 </tr>	
+
+                 <tr>
+                 	<td>Country:</td>
+                 	<td>
+                 		<input type="text" name="Country" value="{{user.Country}}">
+                 	</td>
+                 </tr>	
+
+                 <tr>
+                 	<td>PhoneNumber:</td>
+                 	<td>
+                 		<input type="text" name="PhoneNumber" value="{{user.PhoneNumber}}">
+                 	</td>
+                 </tr>
+
+                 <tr>
+                 	<td>Password:</td>
+                 	<td>
+                 		<input type="text" name="Password" value="{{user.Password}}">
+                 	</td>
+                 </tr>
+
+                 <tr>
+                 	<td>ConfirmPassword:</td>
+                 	<td>
+                 		<input type="text" name="ConfirmPassword" value="{{user.ConfirmPassword}}">
+                 	</td>
+                 </tr>
+
+                 <tr>
+                 	<td>
+                 		<a class="btn btn-danger"  href="{% url 'appLabour:ViewProfile' user.id %}">Update</a>
+
+                 		
+                 	</td>
+                 	
+                 		
+					<td>
+						<a class="btn btn-danger" style="text-decoration: none; " href="/UserDelete/{{ user.id }}">Delete</a>
+					</td>     	
+                 	
+                 </tr>
+             </table>
+             </center>
+		</form>
+
+	</div>
+	{% endblock %}
+
+</body>
+</html>
